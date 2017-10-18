@@ -1,5 +1,5 @@
 const videos = [
-	'https://www.youtube.com/embed/RA2QU4srr5w', // 1. Lil bub
+	'https://www.youtube.com/embed/RA2QU4srr5w', // 1. Lil bub 2016
 	'https://www.youtube.com/embed/gTfPgNqf5Ys', // 2. Minecraft
 	'https://www.youtube.com/embed/_StgHl92v5Q', // 3. Nick Offerman
 	'https://www.youtube.com/embed/f_SqrXtuSoc', // 4. Fire Log with chemicals
@@ -19,9 +19,9 @@ const videos = [
 	'https://www.youtube.com/embed/nX9Ve90RUgE', // 18. brussels griffon
 	'https://www.youtube.com/embed/MrZmt6_lV6g', // 19. Hobbiton-esque
 	'https://www.youtube.com/embed/ya4s9UwDnDI', // 20. boston terrier
-	'', // 21.
-	'', // 22.
-	'', // 23.
-	'', // 24.
-	'' // 25.
+	'https://www.youtube.com/embed/pdd9b47x67M', // 21. fireplace sounds with howling wind
+	'https://www.youtube.com/embed/peHB7jE0ADg', // 22. Lil bub 2015
+	'https://www.youtube.com/embed/Ux8xAuQBdkk', // 23. 4k real time fireplace
+	'https://www.youtube.com/embed/NUKKzdVy0EI', // 24. outdoors with sunset
+	'https://www.youtube.com/embed/OmpVeMz9Flw' // 25. decorated fireplace
 ]
