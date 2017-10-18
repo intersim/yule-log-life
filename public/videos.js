@@ -5,7 +5,7 @@ const videos = [
 	'https://www.youtube.com/embed/f_SqrXtuSoc', // 4. Fire Log with chemicals
 	'https://www.youtube.com/embed/Ye2gMvRa-iE', // 5. Hallmark channel
 	'https://www.youtube.com/embed/sswqlnmbTiA', // 6. Fire tornado
-	'https://www.youtube.com/embed/VEx4KMzPegc', // 7. Original WPIX
+	'https://www.youtube.com/embed/Pr_iNYcL1kw', // 7. KOFY 1980s tv log
 	'https://www.youtube.com/embed/Lb0eTSE22pM', // 8. BB8
 	'https://www.youtube.com/embed/Dp9C_0_JeYE', // 9. Hearthstone (Blizzard entertinament)
 	'https://www.youtube.com/embed/pCevjyYbEPU', // 10. Mystery Science Theater 3000
