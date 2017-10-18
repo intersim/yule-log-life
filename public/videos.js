@@ -19,7 +19,7 @@ const videos = [
 	'https://www.youtube.com/embed/nX9Ve90RUgE', // 18. brussels griffon
 	'https://www.youtube.com/embed/MrZmt6_lV6g', // 19. Hobbiton-esque
 	'https://www.youtube.com/embed/ya4s9UwDnDI', // 20. boston terrier
-	'', // 21.
+	'https://www.youtube.com/embed/rpnBVISuMbg', // 21. historic home in Westchester
 	'', // 22.
 	'', // 23.
 	'', // 24.

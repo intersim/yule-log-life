@@ -6,7 +6,9 @@ const [ iframe ] = Array.from(document.getElementsByTagName('iframe'));
 iframe.setAttribute('width', width);
 iframe.setAttribute('height', height);
 
-const url = videos[0] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
+const random = Math.ceil(Math.random() * 20); 
+
+const url = videos[random] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
 
 iframe.setAttribute('src', url);
 
