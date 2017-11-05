@@ -43,7 +43,11 @@ iframe {
   color: white;
 }
 
-#numbers span:hover.active {
+#numbers span.active:hover {
   cursor: pointer;
-  transform: scale(2);
+  transform: scale(1.8);
+}
+
+#numbers span.selected {
+  transform: scale(1.8);
 }
