@@ -1,6 +1,5 @@
 // get the date
-let today = new Date(); // 
-today = today.getDate();
+const today = (new Date()).getDate();
 
 // create video
 let width = window.innerWidth;
@@ -25,18 +24,18 @@ window.onresize = function() {
 
 // create numbers
 const numbersContainer = document.getElementById('numbers');
+numbersContainer.onclick = changeVideoCallback;
 
-function changeVideoCallbackMaker (number) {
-  return () => {
-    const url = videos[number] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
-    iframe.setAttribute('src', url)
-  }
+function changeVideoCallback (event) {
+  const number = event.target.innerText;
+  const url = videos[number] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
+  iframe.setAttribute('src', url);
 }
 
 for (let i = 1; i <= 25; i++) {
   const dayElement = document.createElement('span');
   if (i <= today) dayElement.className = 'active';
-  dayElement.innerHTML = i;
-  dayElement.onclick = changeVideoCallbackMaker(i);
+  dayElement.innerText = i;
+  // dayElement.onclick = changeVideoCallbackMaker(i);
   numbersContainer.appendChild(dayElement);
 }
