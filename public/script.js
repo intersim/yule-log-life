@@ -29,6 +29,8 @@ numbersContainer.onclick = changeVideoCallback;
 
 function changeVideoCallback (event) {
   const number = event.target.innerText;
+  if (number > today) return;
+  
   const dayElement = document.getElementById(number);
   const prevSelectedElement = document.getElementById(selected);
 
