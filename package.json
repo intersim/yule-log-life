@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/start.js",
   "scripts": {
-    "start-watch": "nodemon -e js,json,html index.js",
+    "start-watch": "nodemon -e js,json,css,html index.js",
     "start": "node index.js"
   },
   "author": "",
