@@ -1,13 +1,3 @@
-# Project
+# Yule Log 2017 Advent Calendar
 
-The app is currently deployed at [LINK HERE].
-
-## Features
-
-## Installation
-
-### Dependencies
-
-## Support
-
-## License
+This app is currently deployed on [heroku](http://yule-log-2017.herokuapp.com/).
