@@ -1,3 +1,8 @@
+// get the date
+let today = new Date(); // 
+today = today.getDate();
+
+// create video
 let width = window.innerWidth;
 let height = window.innerHeight;
 
@@ -6,11 +11,7 @@ const [ iframe ] = document.getElementsByTagName('iframe');
 iframe.setAttribute('width', width);
 iframe.setAttribute('height', height);
 
-const random = Math.floor(Math.random() * 25); 
-
-console.log("video index", random)
-
-const url = videos[random] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
+const url = videos[today] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
 
 iframe.setAttribute('src', url);
 
@@ -20,4 +21,22 @@ window.onresize = function() {
 
   iframe.setAttribute('width', width);
   iframe.setAttribute('height', height);
+}
+
+// create numbers
+const numbersContainer = document.getElementById('numbers');
+
+function changeVideoCallbackMaker (number) {
+  return () => {
+    const url = videos[number] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
+    iframe.setAttribute('src', url)
+  }
+}
+
+for (let i = 1; i <= 25; i++) {
+  const dayElement = document.createElement('span');
+  if (i <= today) dayElement.className = 'active';
+  dayElement.innerHTML = i;
+  dayElement.onclick = changeVideoCallbackMaker(i);
+  numbersContainer.appendChild(dayElement);
 }
