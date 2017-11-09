@@ -17,6 +17,21 @@ iframe {
   z-index: 0;
 }
 
+#about {
+  position: absolute;
+  bottom: 5vh;
+  z-index: 1;
+  padding: 0 2rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 1s ease-in, transform 0.5s ease-in;
+  font-size: 3rem;
+}
+
+#about:hover {
+  color: white;
+  transform: scale(1.8);
+}
+
 #numbers {
   position: absolute;
   top: 0;
@@ -56,4 +71,8 @@ iframe {
 
 #numbers span.selected {
   transform: scale(1.8);
+}
+
+#about.disappear {
+  color: rgba(255, 255, 255, 0)
 }

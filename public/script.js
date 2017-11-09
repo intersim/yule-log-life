@@ -45,10 +45,11 @@ function changeVideoCallback (event) {
 for (let i = 1; i <= 25; i++) {
   const dayElement = document.createElement('span');
   dayElement.id = i;
+
   if (i <= today) dayElement.classList.add('active');
   else dayElement.classList.add('inactive');
-  
   if (i === today) dayElement.classList.add('selected');
+  
   dayElement.innerText = i;
   numbersContainer.appendChild(dayElement);
 }
@@ -59,17 +60,23 @@ const allNums = [...activeNums, ...inactiveNums];
 
 // fade out numbers after 5 seconds
 const numbers = document.getElementById('numbers')
+const about = document.getElementById('about');
 
 setTimeout(() => {  
-  allNums.forEach(num => num.classList.add('disappear'));
+  allNums.forEach(fadeOut);
+  fadeOut(about);
 
-  // fade numbers back in or out on hover
-  numbers.addEventListener("mouseenter", () => {
-    allNums.forEach(num => num.classList.remove('disappear'));
-  });
-  
-  numbers.addEventListener("mouseleave", () => {
-    setTimeout(() => allNums.forEach(num => num.classList.add('disappear')), 1000);
-  });
+  // fade numbers and logo back in or out on hover
+  numbers.addEventListener("mouseenter", () => allNums.forEach(fadeIn));
+  numbers.addEventListener("mouseleave", () => allNums.forEach(fadeOut));
+  about.addEventListener("mouseenter", () => fadeIn(about));
+  about.addEventListener("mouseleave", () => fadeOut(about));
 }, 4000);
 
+function fadeIn (element) {
+  element.classList.remove('disappear');
+}
+
+function fadeOut (element) {
+  setTimeout(() => element.classList.add('disappear'), 1000);
+}
