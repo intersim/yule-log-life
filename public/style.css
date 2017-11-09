@@ -17,17 +17,6 @@ iframe {
   z-index: 0;
 }
 
-#logo {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 1;
-  padding: 1rem;
-  font-size: 2rem;
-  letter-spacing: 0.33rem;
-  color: rgba(255, 255, 255, 0.5)
-}
-
 #numbers {
   position: absolute;
   top: 0;
