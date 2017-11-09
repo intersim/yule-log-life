@@ -58,17 +58,17 @@ const inactiveNums = Array.from(document.getElementsByClassName('inactive'));
 const allNums = [...activeNums, ...inactiveNums];
 
 // fade out numbers after 5 seconds
-const body = document.getElementById('body')
+const numbers = document.getElementById('numbers')
 
-setTimeout(() => {
+setTimeout(() => {  
   allNums.forEach(num => num.classList.add('disappear'));
-  
+
   // fade numbers back in or out on hover
-  body.addEventListener("mouseenter", () => {
+  numbers.addEventListener("mouseenter", () => {
     allNums.forEach(num => num.classList.remove('disappear'));
   });
   
-  body.addEventListener("mouseleave", () => {
+  numbers.addEventListener("mouseleave", () => {
     allNums.forEach(num => num.classList.add('disappear'));
   });
 }, 4000);
