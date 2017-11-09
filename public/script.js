@@ -46,7 +46,30 @@ for (let i = 1; i <= 25; i++) {
   const dayElement = document.createElement('span');
   dayElement.id = i;
   if (i <= today) dayElement.classList.add('active');
+  else dayElement.classList.add('inactive');
+  
   if (i === today) dayElement.classList.add('selected');
   dayElement.innerText = i;
   numbersContainer.appendChild(dayElement);
 }
+
+const activeNums = Array.from(document.getElementsByClassName('active'));
+const inactiveNums = Array.from(document.getElementsByClassName('inactive'));
+const allNums = [...activeNums, ...inactiveNums];
+
+// fade out numbers after 5 seconds
+const body = document.getElementById('body')
+
+setTimeout(() => {
+  allNums.forEach(num => num.classList.add('disappear'));
+  
+  // fade numbers back in or out on hover
+  body.addEventListener("mouseenter", () => {
+    allNums.forEach(num => num.classList.remove('disappear'));
+  });
+  
+  body.addEventListener("mouseleave", () => {
+    allNums.forEach(num => num.classList.add('disappear'));
+  });
+}, 4000);
+
