@@ -69,7 +69,7 @@ setTimeout(() => {
   });
   
   numbers.addEventListener("mouseleave", () => {
-    allNums.forEach(num => num.classList.add('disappear'));
+    setTimeout(() => allNums.forEach(num => num.classList.add('disappear')), 1000);
   });
 }, 4000);
 
