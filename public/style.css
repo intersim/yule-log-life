@@ -5,7 +5,7 @@
 body {
   margin: 0;
   background-color: black;
-  font-family: 'Playfair Display';
+  font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   color: white;
 }
@@ -18,11 +18,8 @@ iframe {
 }
 
 #about {
-  position: absolute;
-  bottom: 5vh;
-  z-index: 1;
   padding: 0 2rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.75);
   transition: color 1s ease-in, transform 0.5s ease-in;
   font-size: 3rem;
   text-decoration: none;
@@ -65,49 +62,57 @@ iframe {
   transform: scale(1.8);
 }
 
-#numbers span.disappear {
-  color: rgba(255, 255, 255, 0);
-  transition: color 1s ease-in;
-}
-
 #numbers span.selected {
   transform: scale(1.8);
-}
-
-#about.disappear {
-  color: rgba(255, 255, 255, 0)
 }
 
 .flex {
   display: flex;
 }
 
-.hide {
-  display: none;
+#about-container {
+  position: absolute;
+  bottom: 5vh;
+  z-index: 1;
+}
+
+.appear {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.disappear {
+  opacity: 0;
+  transition: opacity 1s ease-in;
 }
 
 .center {
   text-align: center;
 }
 
-#modal-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
+.closed {
+  transform: scale(0.7);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.opened {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.3s;
 }
 
 #modal {
+  position: absolute;
+  top: calc(100%/3);
+  left: calc(100%/4);
+  z-index: 2;
   width: 50%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   padding: 3rem;
   font-size: 1.2rem;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #modal h1 {
@@ -116,6 +121,9 @@ iframe {
 
 #modal-close {
   float: right;
+  position: relative;
+  top: -1.6rem;
+  left: 1.1rem;
 }
 
 #modal-close:hover {
@@ -130,10 +138,11 @@ h1 {
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   transition: color 1s ease-in;
+  margin-right: 0.75rem;
 }
 
 .social:last-of-type {
-  margin-left: 0.75rem;
+  margin-right: 0;
 }
 
 .social:hover {
@@ -143,10 +152,11 @@ h1 {
 p {
   margin: 0;
   line-height: 1.45rem;
+  margin-bottom: 1rem;
 }
 
 p:last-of-type {
-  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 .italic {

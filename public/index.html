@@ -3,23 +3,24 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>YuleLog.Life</title>
 	</head>
-  <body>
+  <body id="body">
     <div id="numbers" class="flex">
     </div>
-    <a id="about">?</a>
-    <div id="modal-container" class="flex hide">
-      <div id="modal">
-        <!-- <h1>🔥 YuleLog.Life</h1> -->
-          <i id="modal-close" class="fa fa-times" aria-hidden="true"></i>
-          <p>YuleLog.Life is an online advent calendar for those who appreciate a good yule log video during the festive season.</p>
-          <p>Want more yule logs in your life? Get the YuleLog.Life Chrome extension <span class="italic">(coming soon)</span>!</p>
-          <!-- <p class="center">
-            <a class="social" href="http://github.com/intersim/"><i class="fa fa-2x fa-github" aria-hidden="true"></i></a>
-          </p> -->
-      </div>
+    <div id="about-container">
+      <div id="about">?</div>
     </div>
+      <div id="modal" class="closed">
+        <span id="modal-close">&times;</span>
+        <p>YuleLog.Life is an online advent calendar for those who appreciate a good yule log video during the festive season.</p>
+        <p class="italic">Want more yule logs in your life? The YuleLog.Life Chrome extension is coming soon!</p>
+        <p class="center">
+          <a class="social" href="https://twitter.com/intersimonocle/" target="_blank"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
+          <a class="social" href="http://github.com/intersim/" target="_blank"><i class="fa fa-2x fa-github" aria-hidden="true"></i></a>
+        </p>
+      </div>
     <iframe frameborder="0" allowfullscreen></iframe>
     <script type="text/javascript" src="videos.js"></script>
     <script type="text/javascript" src="script.js"></script>

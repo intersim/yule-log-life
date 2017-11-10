@@ -30,7 +30,7 @@ numbersContainer.onclick = changeVideoCallback;
 function changeVideoCallback (event) {
   const number = event.target.innerText;
   if (number > today) return;
-  
+
   const dayElement = document.getElementById(number);
   const prevSelectedElement = document.getElementById(selected);
 
@@ -49,41 +49,44 @@ for (let i = 1; i <= 25; i++) {
   if (i <= today) dayElement.classList.add('active');
   else dayElement.classList.add('inactive');
   if (i === today) dayElement.classList.add('selected');
-  
+
   dayElement.innerText = i;
   numbersContainer.appendChild(dayElement);
 }
 
-const activeNums = Array.from(document.getElementsByClassName('active'));
-const inactiveNums = Array.from(document.getElementsByClassName('inactive'));
-const allNums = [...activeNums, ...inactiveNums];
-
-// fade out numbers after 5 seconds
+// fade out numbers and buttons when mouse is out of window
+const body = document.getElementById('body');
 const numbers = document.getElementById('numbers')
-const about = document.getElementById('about');
+const about = document.getElementById('about-container');
 
-setTimeout(() => {  
-  allNums.forEach(fadeOut);
-  fadeOut(about);
-
-  // fade numbers and logo back in or out on hover
-  numbers.addEventListener("mouseenter", () => { allNums.forEach(fadeIn); fadeIn(about); });
-  numbers.addEventListener("mouseleave", () => { allNums.forEach(fadeOut); fadeOut(about) });
-  about.addEventListener("mouseenter", () => { allNums.forEach(fadeIn); fadeIn(about); });
-  about.addEventListener("mouseleave", () => { allNums.forEach(fadeIn); fadeIn(about); });
-}, 4000);
+body.addEventListener("mouseenter", () => { fadeIn(numbers); fadeIn(about); });
+body.addEventListener("mouseleave", () => { fadeOut(numbers); fadeOut(about) });
 
 function fadeIn (element) {
   element.classList.remove('disappear');
+  element.classList.add('appear');
 }
 
 function fadeOut (element) {
-  setTimeout(() => element.classList.add('disappear'), 1000);
+  setTimeout(() => {
+    element.classList.add('disappear');
+    element.classList.remove('appear')},
+  1000);
 }
 
 // show and hide the about modal
-const modal = document.getElementById('modal-container');
+const modal = document.getElementById('modal');
 const closeBtn = document.getElementById('modal-close');
 
-about.onclick = () => modal.classList.remove('hide');
-closeBtn.onclick = () => modal.classList.add('hide');
+about.onclick = openModal;
+closeBtn.onclick = closeModal;
+
+function openModal () {
+  modal.classList.add('opened');
+  modal.classList.remove('closed');
+}
+
+function closeModal () {
+  modal.classList.remove('opened');
+  modal.classList.add('closed');
+}
