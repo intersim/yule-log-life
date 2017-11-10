@@ -67,10 +67,10 @@ setTimeout(() => {
   fadeOut(about);
 
   // fade numbers and logo back in or out on hover
-  numbers.addEventListener("mouseenter", () => allNums.forEach(fadeIn));
-  numbers.addEventListener("mouseleave", () => allNums.forEach(fadeOut));
-  about.addEventListener("mouseenter", () => fadeIn(about));
-  about.addEventListener("mouseleave", () => fadeOut(about));
+  numbers.addEventListener("mouseenter", () => { allNums.forEach(fadeIn); fadeIn(about); });
+  numbers.addEventListener("mouseleave", () => { allNums.forEach(fadeOut); fadeOut(about) });
+  about.addEventListener("mouseenter", () => { allNums.forEach(fadeIn); fadeIn(about); });
+  about.addEventListener("mouseleave", () => { allNums.forEach(fadeIn); fadeIn(about); });
 }, 4000);
 
 function fadeIn (element) {
@@ -80,3 +80,10 @@ function fadeIn (element) {
 function fadeOut (element) {
   setTimeout(() => element.classList.add('disappear'), 1000);
 }
+
+// show and hide the about modal
+const modal = document.getElementById('modal-container');
+const closeBtn = document.getElementById('modal-close');
+
+about.onclick = () => modal.classList.remove('hide');
+closeBtn.onclick = () => modal.classList.add('hide');

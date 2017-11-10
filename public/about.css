@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+    margin: 0;
+    background-color: black;
+    font-family: 'Playfair Display';
+    font-size: 1.5rem;
+    color: white;
+}
+
+#container {
+    padding: 0 3rem;
+}
+
+a {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 1s ease-in, transform 0.5s ease-in;
+}
+
+a:hover {
+    color: white;
+    transform: scale(1.8);
+}
+
+.social {
+    padding: 0 0 0 0.75rem;
+}
+
+.social:last-of-type {
+    padding: 0 0 0 1rem;
+}
+
+#back {
+    font-size: 2rem;
+}

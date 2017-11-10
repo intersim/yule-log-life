@@ -4,7 +4,7 @@ const path = require('path');
 const morgan = require('morgan');
 const compression = require('compression');
 
-const indexPath = path.join(__dirname, '..', '..', 'browser', 'index.html');
+const basePath = path.join(__dirname, 'public');
 
 app.use(morgan('dev'));
 
@@ -14,8 +14,12 @@ app.use(express.static('public', {
   maxAge: 86400000 // one day in milliseconds
 }));
 
+app.get('/about', (req, res) => {
+  res.sendFile(`${basePath}/about.html`);
+});
+
 app.use(function (req, res) {
-  res.sendFile(indexPath);
+  res.sendFile(`${basePath}/index.html`);
 });
 
 module.exports = app;

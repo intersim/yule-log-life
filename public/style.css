@@ -25,11 +25,13 @@ iframe {
   color: rgba(255, 255, 255, 0.5);
   transition: color 1s ease-in, transform 0.5s ease-in;
   font-size: 3rem;
+  text-decoration: none;
 }
 
 #about:hover {
   color: white;
   transform: scale(1.8);
+  cursor: pointer;
 }
 
 #numbers {
@@ -38,7 +40,6 @@ iframe {
   left: 0;
   z-index: 1;
   width: 100vw;
-  display: flex;
   justify-content: space-around;
   padding: 0 1rem;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
@@ -75,4 +76,70 @@ iframe {
 
 #about.disappear {
   color: rgba(255, 255, 255, 0)
+}
+
+.flex {
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+#modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+#modal {
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 2rem;
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+#modal h1 {
+  font-family: 'Playfair Display';
+}
+
+#modal-close {
+  float: right;
+}
+
+#modal-close:hover {
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+}
+
+.social {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 1s ease-in;
+}
+
+.social:last-of-type {
+  margin-left: 0.75rem;
+}
+
+.social:hover {
+  color: white;
+}
+
+p:last-of-type {
+  margin-bottom: 0;
 }
