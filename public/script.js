@@ -68,19 +68,25 @@ function fadeIn (element) {
 }
 
 function fadeOut (element) {
-  setTimeout(() => { element.classList.add('disappear'); element.classList.remove('appear')}, 1000);
+  setTimeout(() => {
+    element.classList.add('disappear');
+    element.classList.remove('appear')},
+  1000);
 }
 
 // show and hide the about modal
 const modal = document.getElementById('modal');
 const closeBtn = document.getElementById('modal-close');
 
-about.onclick = () => {
+about.onclick = openModal;
+closeBtn.onclick = closeModal;
+
+function openModal () {
   modal.classList.add('opened');
   modal.classList.remove('closed');
-};
+}
 
-closeBtn.onclick = () => {
+function closeModal () {
   modal.classList.remove('opened');
   modal.classList.add('closed');
-};
+}

@@ -5,7 +5,7 @@
 body {
   margin: 0;
   background-color: black;
-  font-family: 'Playfair Display';
+  font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   color: white;
 }
@@ -19,7 +19,7 @@ iframe {
 
 #about {
   padding: 0 2rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.75);
   transition: color 1s ease-in, transform 0.5s ease-in;
   font-size: 3rem;
   text-decoration: none;
@@ -76,7 +76,7 @@ iframe {
   z-index: 1;
 }
 
-.appear, {
+.appear {
   opacity: 1;
   transition: opacity 1s ease-in;
 }
@@ -112,7 +112,7 @@ iframe {
   border-radius: 10px;
   padding: 3rem;
   font-size: 1.2rem;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #modal h1 {
@@ -152,10 +152,11 @@ h1 {
 p {
   margin: 0;
   line-height: 1.45rem;
+  margin-bottom: 1rem;
 }
 
 p:last-of-type {
-  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 .italic {
