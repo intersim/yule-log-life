@@ -54,20 +54,13 @@ for (let i = 1; i <= 25; i++) {
   numbersContainer.appendChild(dayElement);
 }
 
-// fade out numbers after 5 seconds
+// fade out numbers and buttons when mouse is out of window
+const body = document.getElementById('body');
 const numbers = document.getElementById('numbers')
-const about = document.getElementById('about');
+const about = document.getElementById('about-container');
 
-setTimeout(() => {
-  fadeOut(numbers)
-  fadeOut(about);
-
-  // fade numbers and logo back in or out on hover
-  numbers.addEventListener("mouseenter", () => { fadeIn(numbers); fadeIn(about); });
-  numbers.addEventListener("mouseleave", () => { fadeOut(numbers); fadeOut(about) });
-  about.addEventListener("mouseenter", () => { fadeIn(numbers); fadeIn(about); });
-  about.addEventListener("mouseleave", () => { fadeOut(numbers); fadeOut(about); });
-}, 4000);
+body.addEventListener("mouseenter", () => { fadeIn(numbers); fadeIn(about); });
+body.addEventListener("mouseleave", () => { fadeOut(numbers); fadeOut(about) });
 
 function fadeIn (element) {
   element.classList.remove('disappear');
@@ -79,18 +72,15 @@ function fadeOut (element) {
 }
 
 // show and hide the about modal
-const modalContainer = document.getElementById('modal-container');
 const modal = document.getElementById('modal');
 const closeBtn = document.getElementById('modal-close');
 
 about.onclick = () => {
-  // modalContainer.classList.remove('hide');
   modal.classList.add('opened');
   modal.classList.remove('closed');
 };
 
 closeBtn.onclick = () => {
-  // modalContainer.classList.add('hide');
   modal.classList.remove('opened');
   modal.classList.add('closed');
 };
