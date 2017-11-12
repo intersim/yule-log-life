@@ -46,6 +46,8 @@ for (var i = 1; i <= 25; i++) {
   var dayElement = document.createElement('span');
   dayElement.id = i;
 
+  dayElement.classList.add('number');
+
   if (i <= today) dayElement.classList.add('active');
   else dayElement.classList.add('inactive');
   if (i === today) dayElement.classList.add('selected');
@@ -54,13 +56,28 @@ for (var i = 1; i <= 25; i++) {
   numbersContainer.appendChild(dayElement);
 }
 
-// fade out numbers and buttons when mouse is out of window
+// fade out numbers and buttons when mouse isn't moving
 var bodyElement = document.getElementById('body');
 var numbersElement = document.getElementById('numbers')
 var aboutElement = document.getElementById('about-container');
+var timeoutId = null;
 
-bodyElement.addEventListener("mouseenter", function () { fadeIn(numbersElement); fadeIn(aboutElement); });
-bodyElement.addEventListener("mouseleave", function () { fadeOut(numbersElement); fadeOut(aboutElement) });
+timeoutId = setTimeout(function () {
+  fadeOut(numbersElement);
+  fadeOut(aboutElement);
+}, 4000);
+
+bodyElement.addEventListener("mousemove", function (e) {
+  if (timeoutId !== null) clearInterval(timeoutId);
+
+  fadeIn(numbersElement); 
+  fadeIn(aboutElement);
+
+  timeoutId = setTimeout(function () {
+    fadeOut(numbersElement); 
+    fadeOut(aboutElement);
+  }, 3000);
+});
 
 function fadeIn (element) {
   element.classList.remove('disappear');
@@ -68,10 +85,8 @@ function fadeIn (element) {
 }
 
 function fadeOut (element) {
-  setTimeout(function () {
-    element.classList.add('disappear');
-    element.classList.remove('appear')},
-  1000);
+  element.classList.add('disappear');
+  element.classList.remove('appear');
 }
 
 // show and hide the about modal
