@@ -1,4 +1,4 @@
-const videos = [
+var videos = [
 	null,
 	'RA2QU4srr5w', // 1. Lil bub 2016
 	'gTfPgNqf5Ys', // 2. Minecraft
