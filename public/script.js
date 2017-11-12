@@ -1,17 +1,17 @@
 // get the date
-const today = (new Date()).getDate();
-let selected = today;
+var today = (new Date()).getDate();
+var selected = today;
 
 // create video
-let width = window.innerWidth;
-let height = window.innerHeight;
+var width = window.innerWidth;
+var height = window.innerHeight;
 
-const [ iframe ] = document.getElementsByTagName('iframe');
+var iframe = document.getElementsByTagName('iframe')[0];
 
 iframe.setAttribute('width', width);
 iframe.setAttribute('height', height);
 
-const url = videos[today] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
+var url = 'https://www.youtube.com/embed/' + videos[today] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
 
 iframe.setAttribute('src', url);
 
@@ -24,26 +24,26 @@ window.onresize = function() {
 }
 
 // create numbers
-const numbersContainer = document.getElementById('numbers');
+var numbersContainer = document.getElementById('numbers');
 numbersContainer.onclick = changeVideoCallback;
 
 function changeVideoCallback (event) {
-  const number = event.target.innerText;
+  var number = event.target.innerText;
   if (number > today) return;
 
-  const dayElement = document.getElementById(number);
-  const prevSelectedElement = document.getElementById(selected);
+  var dayElement = document.getElementById(number);
+  var prevSelectedElement = document.getElementById(selected);
 
   prevSelectedElement.classList.remove('selected');
   selected = number;
   dayElement.classList.add('selected');
 
-  const url = videos[number] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
+  var url = 'https://www.youtube.com/embed/' + videos[number] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
   iframe.setAttribute('src', url);
 }
 
-for (let i = 1; i <= 25; i++) {
-  const dayElement = document.createElement('span');
+for (var i = 1; i <= 25; i++) {
+  var dayElement = document.createElement('span');
   dayElement.id = i;
 
   if (i <= today) dayElement.classList.add('active');
@@ -55,12 +55,12 @@ for (let i = 1; i <= 25; i++) {
 }
 
 // fade out numbers and buttons when mouse is out of window
-const main = document.getElementById('main');
-const numbers = document.getElementById('numbers')
-const about = document.getElementById('about-container');
+var bodyElement = document.getElementById('body');
+var numbersElement = document.getElementById('numbers')
+var aboutElement = document.getElementById('about-container');
 
-main.addEventListener("mouseenter", () => { fadeIn(numbers); fadeIn(about); });
-main.addEventListener("mouseleave", () => { fadeOut(numbers); fadeOut(about) });
+bodyElement.addEventListener("mouseenter", function () { fadeIn(numbersElement); fadeIn(aboutElement); });
+bodyElement.addEventListener("mouseleave", function () { fadeOut(numbersElement); fadeOut(aboutElement) });
 
 function fadeIn (element) {
   element.classList.remove('disappear');
@@ -68,25 +68,25 @@ function fadeIn (element) {
 }
 
 function fadeOut (element) {
-  setTimeout(() => {
+  setTimeout(function () {
     element.classList.add('disappear');
     element.classList.remove('appear')},
   1000);
 }
 
 // show and hide the about modal
-const modal = document.getElementById('modal');
-const closeBtn = document.getElementById('modal-close');
+var modalEl = document.getElementById('modal');
+var closeBtnEl = document.getElementById('modal-close');
 
-about.onclick = openModal;
-closeBtn.onclick = closeModal;
+aboutElement.onclick = openModal;
+closeBtnEl.onclick = closeModal;
 
 function openModal () {
-  modal.classList.add('opened');
-  modal.classList.remove('closed');
+  modalEl.classList.add('opened');
+  modalEl.classList.remove('closed');
 }
 
 function closeModal () {
-  modal.classList.remove('opened');
-  modal.classList.add('closed');
+  modalEl.classList.remove('opened');
+  modalEl.classList.add('closed');
 }
