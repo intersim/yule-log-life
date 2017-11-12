@@ -67,13 +67,14 @@ timeoutId = setTimeout(function () {
   fadeOut(aboutElement);
 }, 4000);
 
-bodyElement.addEventListener("mousemove", function (e) {
+bodyElement.addEventListener('mousemove', function (e) {
   if (timeoutId !== null) clearInterval(timeoutId);
 
   fadeIn(numbersElement); 
   fadeIn(aboutElement);
 
   timeoutId = setTimeout(function () {
+    if (e.target.id === 'about' || e.target.id === 'numbers' || e.target.classList.contains('number')) return;
     fadeOut(numbersElement); 
     fadeOut(aboutElement);
   }, 3000);
@@ -89,6 +90,29 @@ function fadeOut (element) {
   element.classList.remove('appear');
 }
 
+// fade out numbers and about when mouse leaves the window
+function addEvent(obj, evt, fn) {
+  if (obj.addEventListener) {
+    obj.addEventListener(evt, fn, false);
+  }
+  else if (obj.attachEvent) {
+    obj.attachEvent("on" + evt, fn);
+  }
+}
+
+addEvent(window,"load",function(e) {
+  addEvent(document, "mouseout", function(e) {
+    e = e ? e : window.event;
+    var from = e.relatedTarget || e.toElement;
+    if (!from || from.nodeName == "HTML") {
+      timeoutId = setTimeout(function () {
+        fadeOut(numbersElement); 
+        fadeOut(aboutElement);
+      }, 3000);
+    }
+  });
+});
+
 // show and hide the about modal
 var modalEl = document.getElementById('modal');
 var closeBtnEl = document.getElementById('modal-close');
@@ -97,11 +121,15 @@ aboutElement.onclick = openModal;
 closeBtnEl.onclick = closeModal;
 
 function openModal () {
-  modalEl.classList.add('opened');
-  modalEl.classList.remove('closed');
+  modalEl.classList.remove("hidden");
+  setTimeout(function() {
+    modalEl.classList.remove('closed');
+    modalEl.classList.add('opened');
+  }, 0);
 }
 
 function closeModal () {
   modalEl.classList.remove('opened');
   modalEl.classList.add('closed');
+  setTimeout(function () { modalEl.classList.add("hidden") }, 300);
 }

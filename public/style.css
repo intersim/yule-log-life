@@ -102,6 +102,10 @@ iframe {
   transition: all 0.3s;
 }
 
+.hidden {
+  display: none;
+}
+
 #modal {
   position: absolute;
   top: calc(100%/3);
@@ -128,6 +132,13 @@ iframe {
 
 #modal-close:hover {
   cursor: pointer;
+}
+
+#background {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
 }
 
 h1 {
