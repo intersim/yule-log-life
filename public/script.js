@@ -11,7 +11,7 @@ var iframe = document.getElementsByTagName('iframe')[0];
 iframe.setAttribute('width', width);
 iframe.setAttribute('height', height);
 
-var url = 'https://www.youtube.com/embed/' + videos[today] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
+var url = 'https://www.youtube.com/embed/' + videos[today] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1;iv_load_policy=3';
 
 iframe.setAttribute('src', url);
 
@@ -38,7 +38,7 @@ function changeVideoCallback (event) {
   selected = number;
   dayElement.classList.add('selected');
 
-  var url = 'https://www.youtube.com/embed/' + videos[number] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1';
+  var url = 'https://www.youtube.com/embed/' + videos[number] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1;iv_load_policy=3';
   iframe.setAttribute('src', url);
 }
 
