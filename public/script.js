@@ -1,5 +1,6 @@
 // get the date
-var today = (new Date()).getDate();
+var date = (new Date()).getDate();
+var today = date <= 25 ? date : 25;
 var month = (new Date()).getMonth() + 1; // getMonth returns a zero-based value
 var selected = today;
 
@@ -7,7 +8,9 @@ var selected = today;
 if (month !== 12) {
   var backgroundElement = document.getElementById('background');
   var aboutElement = document.getElementById('about');
+  var modalElement = document.getElementById('modal');
   aboutElement.classList.add('hidden');
+  modalElement.classList.add('hidden');
 
   background.innerText = "YuleLog.Life starts on December 1st"
 } 
