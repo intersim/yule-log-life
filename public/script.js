@@ -27,6 +27,7 @@ else {
   var url = 'https://www.youtube.com/embed/' + videos[today] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1;iv_load_policy=3';
 
   iframe.setAttribute('src', url);
+  iframe.setAttribute('allow', 'autoplay');
 
   window.onresize = function() {
     width = window.innerWidth;
