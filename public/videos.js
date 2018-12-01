@@ -22,7 +22,7 @@ var videos = [
 	'peHB7jE0ADg', // 20. Lil bub 2015
 	'pjNnzgLpo4s', // 21. Michael Bublé
 	'f_SqrXtuSoc', // 22. Fire log with chemicals
-	'OmpVeMz9Flw', // 23. decorated fireplace
+	'geDhhWvl1II', // 23. decorated fireplace
 	'ya4s9UwDnDI', // 24. boston terrier
 	'Ye2gMvRa-iE' // 25. Hallmark channel
 ]
