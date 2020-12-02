@@ -7,24 +7,21 @@ var selected = today;
 // if it's not december...
 if (month !== 12) {
   var backgroundElement = document.getElementById('background');
-  var aboutElement = document.getElementById('about');
-  var modalElement = document.getElementById('modal');
-  aboutElement.classList.add('hidden');
-  modalElement.classList.add('hidden');
-
   background.innerText = "YuleLog.Life starts on December 1st"
 } 
 else {
   // create video
   var width = window.innerWidth;
   var height = window.innerHeight;
+  var baseUrl = 'https://www.youtube.com/embed/';
+  var urlParams = '?modestbranding=0;loop=1;showinfo=0;autoplay=1;iv_load_policy=3;fs=0';
 
   var iframe = document.getElementsByTagName('iframe')[0];
 
   iframe.setAttribute('width', width);
   iframe.setAttribute('height', height);
 
-  var url = 'https://www.youtube.com/embed/' + videos[today] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1;iv_load_policy=3';
+  var url = baseUrl + videos[today] + urlParams;
 
   iframe.setAttribute('src', url);
   iframe.setAttribute('allow', 'autoplay');
@@ -52,7 +49,7 @@ else {
     selected = number;
     dayElement.classList.add('selected');
 
-    var url = 'https://www.youtube.com/embed/' + videos[number] + '?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1;iv_load_policy=3';
+    var url = baseUrl + videos[number] + urlParams;
     iframe.setAttribute('src', url);
   }
 
@@ -70,27 +67,23 @@ else {
     numbersContainer.appendChild(dayElement);
   }
 
-  // fade out numbers and buttons when mouse isn't moving
+  // fade out numbers when mouse isn't moving
   var bodyElement = document.getElementById('body');
   var numbersElement = document.getElementById('numbers')
-  var aboutElement = document.getElementById('about-container');
   var timeoutId = null;
 
   timeoutId = setTimeout(function () {
     fadeOut(numbersElement);
-    fadeOut(aboutElement);
   }, 4000);
 
   bodyElement.addEventListener('mousemove', function (e) {
     if (timeoutId !== null) clearInterval(timeoutId);
 
     fadeIn(numbersElement); 
-    fadeIn(aboutElement);
 
     timeoutId = setTimeout(function () {
-      if (e.target.id === 'about' || e.target.id === 'numbers' || e.target.classList.contains('number')) return;
+      if (e.target.id === 'numbers' || e.target.classList.contains('number')) return;
       fadeOut(numbersElement); 
-      fadeOut(aboutElement);
     }, 3000);
   });
 
@@ -104,7 +97,7 @@ else {
     element.classList.remove('appear');
   }
 
-  // fade out numbers and about when mouse leaves the window
+  // fade out numbers when mouse leaves the window
   function addEvent(obj, evt, fn) {
     if (obj.addEventListener) {
       obj.addEventListener(evt, fn, false);
@@ -121,31 +114,9 @@ else {
       if (!from || from.nodeName == "HTML") {
         timeoutId = setTimeout(function () {
           fadeOut(numbersElement); 
-          fadeOut(aboutElement);
         }, 3000);
       }
     });
   });
-
-  // show and hide the about modal
-  var modalEl = document.getElementById('modal');
-  var closeBtnEl = document.getElementById('modal-close');
-
-  aboutElement.onclick = openModal;
-  closeBtnEl.onclick = closeModal;
-
-  function openModal () {
-    modalEl.classList.remove("hidden");
-    setTimeout(function() {
-      modalEl.classList.remove('closed');
-      modalEl.classList.add('opened');
-    }, 0);
-  }
-
-  function closeModal () {
-    modalEl.classList.remove('opened');
-    modalEl.classList.add('closed');
-    setTimeout(function () { modalEl.classList.add("hidden") }, 300);
-  }
 }
 

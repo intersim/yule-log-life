@@ -14,8 +14,8 @@ var videos = [
 	'Lb0eTSE22pM', // 12. BB8
 	'MBdQ3xGguUQ', // 13. chocolate
 	'MrZmt6_lV6g', // 14. Hobbiton-esque
-	'sswqlnmbTiA', // 15. Fire tornado
-	'eJ5gW2lsxqo', // 16. Idina Menzel
+	'Ux8xAuQBdkk', // 15. real time fireplace
+	'sswqlnmbTiA', // 16. Fire tornado
 	'rSPoSdNvbR0', // 17. modern fireplace
 	'26XgIw8xYz8', // 18. lego
 	'puPVtf6SJew', // 19. decorated with snow falling

@@ -17,20 +17,6 @@ iframe {
   z-index: 0;
 }
 
-#about {
-  padding: 0 2rem;
-  color: rgba(255, 255, 255, 0.75);
-  transition: color 1s ease-in, transform 0.5s ease-in;
-  font-size: 3rem;
-  text-decoration: none;
-}
-
-#about:hover {
-  color: white;
-  transform: scale(1.8);
-  cursor: pointer;
-}
-
 #numbers {
   position: absolute;
   top: 0;
@@ -70,12 +56,6 @@ iframe {
   display: flex;
 }
 
-#about-container {
-  position: absolute;
-  bottom: 5vh;
-  z-index: 1;
-}
-
 .appear {
   opacity: 1;
   transition: opacity 1s ease-in;
@@ -106,41 +86,9 @@ iframe {
   display: none;
 }
 
-#modal {
-  position: absolute;
-  top: calc(100%/3);
-  left: calc(100%/4);
-  z-index: 2;
-  width: 50%;
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 10px;
-  padding: 3rem;
-  font-size: 1.2rem;
-  font-family: 'Roboto', sans-serif;
-}
-
-#modal a {
-  color: white;
-}
-
-#modal h1 {
-  font-family: 'Playfair Display';
-}
-
-#modal-close {
-  float: right;
-  position: relative;
-  top: -1.6rem;
-  left: 1.1rem;
-}
-
-#modal-close:hover {
-  cursor: pointer;
-}
-
 #background {
   position: absolute;
-  height: 100vh;
+  height: 25vh;
   width: 100vw;
   z-index: 1;
   display: flex;
@@ -150,21 +98,6 @@ iframe {
 
 h1 {
   margin: 0;
-}
-
-.social {
-  color: rgba(255, 255, 255, 0.75);
-  text-decoration: none;
-  transition: color 1s ease-in;
-  margin-right: 0.75rem;
-}
-
-.social:last-of-type {
-  margin-right: 0;
-}
-
-.social:hover {
-  color: white;
 }
 
 p {
